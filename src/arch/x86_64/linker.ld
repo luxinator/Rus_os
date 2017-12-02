@@ -1,17 +1,23 @@
 ENTRY(start)
 
 SECTIONS {
-	. = 1M;
+    . = 1M;
 
-	.boot :
-	{
+    .boot :
+    {
+        KEEP(*(.multiboot_header))
+    }
 
-	KEEP(*(.multiboot_header))
+    .text :
+    {
+        *(.text .text.*)
+    }
 
-	}
+    .rodata : {
+        *(.rodata .rodata.*)
+    }
 
-	.text :
-	{
-		*.(text)
-	}
+    .data.rel.ro : {
+        *(.data.rel.ro.local*) *(.data.rel.ro .data.rel.ro.*)
+    }
 }

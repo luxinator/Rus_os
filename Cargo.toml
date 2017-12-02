@@ -7,14 +7,7 @@ authors = ["Philipp Oppermann <dev@phil-opp.com>", "Lucas van Oosterhout <lucasv
 crate-type = ["staticlib"]
 
 [dependencies]
-rlibc = "0.1.4"
+rlibc = "1.0"
 volatile = "0.1.0"
-spin = "0.3.4"
-
-#The development profile, used for cargo build
-[profile.dev]
-panic = "abort"
-
-#profile used for release:
-[profile.release]
-panic = "abort"
+spin = "0.4.5"
+multiboot2 = "0.1.0"
